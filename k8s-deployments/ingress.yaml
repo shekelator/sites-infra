@@ -1,0 +1,40 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: name-virtual-host-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$0
+spec:
+  rules:
+  - host: readings.dnix.us
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: ruachreadings-service
+            port:
+              number: 80
+  - host: www.dnix.us
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: homeofdave-service
+            port:
+              number: 81
+---
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+  name: ingress-class-nginx
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
+spec:
+  controller: k8s.io/ingress-nginx
