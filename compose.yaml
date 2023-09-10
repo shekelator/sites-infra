@@ -2,14 +2,15 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "5000:80"
+      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
   readings:
     image: ghcr.io/shekelator/ruachreadings:main
     ports:
-      - "8080:8080"
+      - "8080"
   homepage-of-dave:
-    image: ghcr.io/shekelator/homepage-of-dave:master
+    # image: ghcr.io/shekelator/homepage-of-dave:master
+    image: homepage-of-dave:main
     ports:
-      - "8081:5000"
+      - "5000"
