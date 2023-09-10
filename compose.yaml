@@ -10,7 +10,7 @@ services:
     ports:
       - "8080"
   homepage-of-dave:
-    # image: ghcr.io/shekelator/homepage-of-dave:master
-    image: homepage-of-dave:master
+    image: ghcr.io/shekelator/homepage-of-dave:master
+    # image: homepage-of-dave:master
     ports:
       - "5000"
