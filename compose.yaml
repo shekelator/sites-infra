@@ -12,8 +12,8 @@ services:
   homepage-of-dave:
     image: ghcr.io/shekelator/homepage-of-dave:master
     environment:
-      - SPACES_ACCESS_KEY="${SPACES_ACCESS_KEY}"
-      - SPACES_SECRET="${SPACES_SECRET}"
+      - SPACES_ACCESS_KEY=${SPACES_ACCESS_KEY}
+      - SPACES_SECRET=${SPACES_SECRET}
     # image: homepage-of-dave:master
     ports:
       - "5000"
