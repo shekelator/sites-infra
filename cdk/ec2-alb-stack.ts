@@ -1,5 +1,5 @@
 import { App, Stack, StackProps, CfnOutput } from 'aws-cdk-lib'
-import { ServerResources, ServerProps } from './server-resources'
+import { ServerResources, ServerProps } from './server'
 import { Construct } from 'constructs'
 import { ec2 } from 'aws-cdk-lib/aws-ec2'
 
