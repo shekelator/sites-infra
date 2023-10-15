@@ -92,6 +92,7 @@ export class ServerResources extends Construct {
       'curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo',
       'curl -sL https://rpm.nodesource.com/setup_18.x | sudo -E bash - ',
       'yum install -y amazon-cloudwatch-agent nodejs python3-pip zip unzip docker yarn',
+      'sudo yum install docker-compose',
       'sudo systemctl enable docker',
       'sudo systemctl start docker',
       'mkdir -p /home/ec2-user/sample',
@@ -110,14 +111,20 @@ export class ServerResources extends Construct {
     // Determine the correct CPUType and Instance Class based on the props passed in
     if (props.cpuType == 'ARM64') {
       cpuType = AmazonLinuxCpuType.ARM_64;
-      instanceClass = InstanceClass.M7G;
+      instanceClass = InstanceClass.T4G;
     } else {
       cpuType = AmazonLinuxCpuType.X86_64;
-      instanceClass = InstanceClass.M5;
+      instanceClass = InstanceClass.T3;
     }
 
     // Determine the correct InstanceSize based on the props passed in
     switch (props.instanceSize) {
+      case 'micro':
+        instanceSize = InstanceSize.MICRO;
+      case 'small':
+        instanceSize = InstanceSize.SMALL;
+      case 'medium':
+        instanceSize = InstanceSize.MEDIUM;
       case 'large':
         instanceSize = InstanceSize.LARGE;
         break;
