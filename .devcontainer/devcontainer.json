@@ -3,7 +3,7 @@
         "dockerfile": "Dockerfile"
     },
 	"mounts": [
-		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/node/.aws,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/node/.aws,type=bind,consistency=cached"
 	],
     "customizations": {
         "vscode": {
@@ -11,13 +11,14 @@
 	        "extensions": [
 		        "dbaeumer.vscode-eslint",
 		        "amazonwebservices.aws-toolkit-vscode",
-		        "ms-python.vscode-pylance",
-		        "ms-python.python"
+		        // "ms-python.vscode-pylance",
+		        // "ms-python.python"
             ]
         }
     },
 	"remoteUser": "node",
 	"features": {
-		"python": "3.10"
+		// "python": "3.10",
+    	"ghcr.io/devcontainers-contrib/features/aws-cdk:2": {}
 	}
 }

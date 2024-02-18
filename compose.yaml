@@ -17,3 +17,8 @@ services:
     # image: homepage-of-dave:master
     ports:
       - "5000"
+  regenerative-foodscapes:
+    image: ghcr.io/shekelator/regenerative-foodscapes-home:main
+    ports:
+      - "1313"
+
