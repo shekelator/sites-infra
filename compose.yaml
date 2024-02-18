@@ -20,5 +20,4 @@ services:
   regenerative-foodscapes:
     image: ghcr.io/shekelator/regenerative-foodscapes-home:main
     ports:
-      - "1313"
-
+      - "8081:80"
